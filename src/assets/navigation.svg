@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="100%" height="100%" fill="#0f1724" />
+  <g transform="translate(40,40)">
+    <rect width="1120" height="550" rx="20" fill="#0b1220" stroke="#1f2937" stroke-width="4" />
+    <text x="560" y="280" fill="#9ca3af" font-size="36" font-family="Arial" text-anchor="middle">Navigation Flow Placeholder</text>
+  </g>
+</svg>

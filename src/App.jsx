@@ -7,48 +7,53 @@ import RecommendationCard from './components/RecommendationCard'
 import { scenarios, env } from './data/performanceData'
 import { Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, BarChart } from 'recharts'
 import { motion } from 'framer-motion'
+import natriumLogo from './assets/Natrium logo.png'
 
 function AppOverview() {
   return (
-    <section id="overview" className="max-w-7xl mx-auto px-4 py-10">
-      <div className="grid md:grid-cols-3 gap-4 items-start">
-        <div className="md:col-span-2 glass p-6 rounded-lg border border-slate-800">
-          <h1 className="text-3xl font-bold">Natrium Wallet Performance Analysis</h1>
-          <p className="text-slate-400 mt-2">A technical profiling audit of rendering, memory, threading, and micro-performance behavior in an open-source Flutter mobile wallet.</p>
-          <div className="mt-4 flex gap-3">
-            <a href="#scenarios" className="px-4 py-2 bg-purple-600 rounded hover:opacity-90">View Scenarios</a>
-            <a href="#metrics" className="px-4 py-2 border border-slate-700 rounded hover:bg-slate-800">Open Dashboard</a>
+    <section id="overview" className="max-w-7xl mx-auto px-4 py-16">
+      <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <img src={natriumLogo} alt="Natrium app logo" className="mb-6 h-16 w-auto object-contain" />
+          <h1 className="text-5xl font-bold text-slate-900 mb-4">Fast, Robust & Secure</h1>
+          <h2 className="text-4xl font-bold text-slate-800 mb-6">Natrium Wallet</h2>
+          <p className="text-lg text-slate-700 mb-6">A technical profiling audit of rendering, memory, threading, and micro-performance behavior in an open-source Flutter mobile wallet.</p>
+          <div className="flex gap-4 mb-6">
+            <a href="#scenarios" className="px-6 py-3 bg-slate-900 text-white rounded-lg font-semibold hover:bg-slate-800">View Scenarios</a>
+            <a href="#metrics" className="px-6 py-3 border-2 border-slate-900 text-slate-900 rounded-lg font-semibold hover:bg-slate-100">Open Dashboard</a>
           </div>
 
-          <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3">
-            <div className="text-xs text-slate-400">Course: ISIS-3510</div>
-            <div className="text-xs text-slate-400">App: Natrium Wallet</div>
-            <div className="text-xs text-slate-400">Platform: Flutter / Android</div>
-            <div className="text-xs text-slate-400">Badge: Performance Profiling Report</div>
+          <div className="mt-8 grid grid-cols-2 gap-3">
+            <div className="text-sm text-slate-700 font-medium">Course: ISIS-3510</div>
+            <div className="text-sm text-slate-700 font-medium">App: Natrium Wallet</div>
+            <div className="text-sm text-slate-700 font-medium">Platform: Flutter / Android</div>
+            <div className="text-sm text-slate-700 font-medium">Badge: Performance Report</div>
           </div>
         </div>
 
-        <div className="space-y-3">
-          <div className="glass p-4 rounded-lg border border-slate-800">
-            <div className="text-sm font-semibold">App Overview</div>
-            <p className="text-xs text-slate-300 mt-2">Natrium is an open-source mobile wallet for the Nano cryptocurrency, built with Flutter. It provides balance visualization, transaction history, QR flows, contacts, and security.</p>
-            <div className="mt-3 grid grid-cols-2 gap-2 text-xs text-slate-300">
-              <div className="p-2 bg-slate-900 rounded">Framework: Flutter</div>
-              <div className="p-2 bg-slate-900 rounded">Rendering: Skia / OpenGL</div>
-              <div className="p-2 bg-slate-900 rounded">Storage: SQLite + SharedPreferences</div>
-              <div className="p-2 bg-slate-900 rounded">Networking: WebSocket + HTTP</div>
-              <div className="p-2 bg-slate-900 rounded">Security: Secure Storage + Biometrics</div>
+        <div className="space-y-4">
+          <div className="bg-white bg-opacity-80 backdrop-blur p-6 rounded-lg border border-slate-200">
+            <div className="font-semibold text-slate-900 mb-3">App Overview</div>
+            <p className="text-sm text-slate-700 mb-4">Natrium is an open-source mobile wallet for the Nano cryptocurrency, built with Flutter. It provides balance visualization, transaction history, QR flows, contacts, and security.</p>
+            <div className="grid grid-cols-2 gap-2 text-xs text-slate-600">
+              <div className="p-2 bg-sky-100 rounded">Framework: Flutter</div>
+              <div className="p-2 bg-sky-100 rounded">Rendering: Skia / OpenGL</div>
+              <div className="p-2 bg-sky-100 rounded">Storage: SQLite + SharedPreferences</div>
+              <div className="p-2 bg-sky-100 rounded">Networking: WebSocket + HTTP</div>
+              <div className="p-2 bg-sky-100 rounded">Security: Secure Storage + Biometrics</div>
             </div>
           </div>
 
-          <div className="glass p-4 rounded-lg border border-slate-800 text-xs">
-            <div className="font-semibold">Environment</div>
-            <div className="text-slate-300 mt-2">Device: {env.device}</div>
-            <div className="text-slate-300">Resolution: {env.resolution}</div>
-            <div className="text-slate-300">Platform: {env.platform}</div>
-            <div className="text-slate-300">Flutter: {env.flutterVersion}</div>
-            <div className="text-slate-300">Dart: {env.dartVersion}</div>
-            <div className="text-slate-300">Build mode: {env.buildMode}</div>
+          <div className="bg-white bg-opacity-80 backdrop-blur p-4 rounded-lg border border-slate-200 text-xs">
+            <div className="font-semibold text-slate-900 mb-2">Environment</div>
+            <div className="text-slate-700 space-y-1">
+              <div>Device: {env.device}</div>
+              <div>Resolution: {env.resolution}</div>
+              <div>Platform: {env.platform}</div>
+              <div>Flutter: {env.flutterVersion}</div>
+              <div>Dart: {env.dartVersion}</div>
+              <div>Build mode: {env.buildMode}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -68,6 +73,7 @@ function Metrics() {
 
   return (
     <section id="metrics" className="max-w-7xl mx-auto px-4 py-10">
+      <h2 className="text-2xl font-semibold text-slate-900 mb-6">Performance Metrics</h2>
       <div className="grid md:grid-cols-4 gap-4">
         <div className="md:col-span-3">
           <div className="grid md:grid-cols-2 gap-4">
@@ -125,15 +131,15 @@ function Metrics() {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-navy text-slate-100">
+    <div className="min-h-screen bg-gradient-to-b from-sky-300 via-sky-200 to-sky-100 text-slate-900">
       <Header />
       <main className="pt-6">
         <AppOverview />
         <section id="methodology" className="max-w-7xl mx-auto px-4 py-10">
-          <div className="glass p-6 rounded-lg border border-slate-800">
-            <h2 className="text-xl font-semibold">Profiling Methodology</h2>
-            <p className="text-slate-300 mt-2">Evaluated using Android profiling tools and system diagnostics.</p>
-            <ul className="list-disc pl-5 mt-3 text-slate-300">
+          <div className="bg-white bg-opacity-80 backdrop-blur p-6 rounded-lg border border-slate-200">
+            <h2 className="text-xl font-semibold text-slate-900">Profiling Methodology</h2>
+            <p className="text-slate-700 mt-2">Evaluated using Android profiling tools and system diagnostics.</p>
+            <ul className="list-disc pl-5 mt-3 text-slate-700">
               <li>Android Studio Profiler</li>
               <li>ADB dumpsys gfxinfo</li>
               <li>ADB dumpsys meminfo</li>
@@ -145,7 +151,7 @@ export default function App() {
         <Metrics />
 
         <section id="scenarios" className="max-w-7xl mx-auto px-4 py-10 space-y-4">
-          <h2 className="text-2xl font-semibold">Scenario Analyses</h2>
+          <h2 className="text-2xl font-semibold text-slate-900">Scenario Analyses</h2>
           <div className="grid gap-4">
             {scenarios.map(s => (
               <ScenarioSection key={s.id} scenario={s} />
@@ -154,25 +160,25 @@ export default function App() {
         </section>
 
         <section id="findings" className="max-w-7xl mx-auto px-4 py-10">
-          <h2 className="text-2xl font-semibold mb-4">Detailed Findings</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-slate-900">Detailed Findings</h2>
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="glass p-4 rounded border border-slate-800">
-              <div className="font-semibold">GPU Rendering</div>
-              <div className="text-sm text-slate-300 mt-2">Main issue: janky frames and missed frame deadlines. Highest cost: QR interaction at 200 ms.</div>
+            <div className="bg-white bg-opacity-80 backdrop-blur p-4 rounded-lg border border-slate-200">
+              <div className="font-semibold text-slate-900">GPU Rendering</div>
+              <div className="text-sm text-slate-700 mt-2">Main issue: janky frames and missed frame deadlines. Highest cost: QR interaction at 200 ms.</div>
             </div>
-            <div className="glass p-4 rounded border border-slate-800">
-              <div className="font-semibold">Memory</div>
-              <div className="text-sm text-slate-300 mt-2">Main issue: native heap dominates memory usage. Strength: no leaks observed.</div>
+            <div className="bg-white bg-opacity-80 backdrop-blur p-4 rounded-lg border border-slate-200">
+              <div className="font-semibold text-slate-900">Memory</div>
+              <div className="text-sm text-slate-700 mt-2">Main issue: native heap dominates memory usage. Strength: no leaks observed.</div>
             </div>
-            <div className="glass p-4 rounded border border-slate-800">
-              <div className="font-semibold">Threading</div>
-              <div className="text-sm text-slate-300 mt-2">Main issue: temporary UI-thread pressure during transitions; scenario 3 had highest threads.</div>
+            <div className="bg-white bg-opacity-80 backdrop-blur p-4 rounded-lg border border-slate-200">
+              <div className="font-semibold text-slate-900">Threading</div>
+              <div className="text-sm text-slate-700 mt-2">Main issue: temporary UI-thread pressure during transitions; scenario 3 had highest threads.</div>
             </div>
           </div>
         </section>
 
         <section id="recommendations" className="max-w-7xl mx-auto px-4 py-10">
-          <h2 className="text-2xl font-semibold mb-4">Optimization Recommendations</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-slate-900">Optimization Recommendations</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <RecommendationCard title="Optimize QR Rendering" problem="QR interaction produced high rendering time." solution="Cache QR widget; use RepaintBoundary." impact="Lower redraw cost and smoother interaction." />
             <RecommendationCard title="Defer Startup Work" problem="Startup generated a janky frame." solution="Lazy-load non-critical data after first frame." impact="Faster first visual render." />
@@ -182,20 +188,9 @@ export default function App() {
         </section>
 
         <section id="conclusion" className="max-w-7xl mx-auto px-4 py-10">
-          <div className="glass p-6 rounded border border-slate-800">
-            <h2 className="text-xl font-semibold">Conclusion</h2>
-            <p className="text-slate-300 mt-2">The performance profiling analysis shows that Natrium Wallet maintains a lightweight UI hierarchy, controlled memory behavior, and effective multithreaded execution. The main bottlenecks are temporary rendering spikes during startup, navigation transitions, and QR interactions. The QR/transaction scenario produced the highest rendering cost, while navigation produced the highest memory usage. Overall, the application is stable, but performance could be improved through QR rendering optimization, lazy initialization, overlay simplification, and continued leak monitoring.</p>
-          </div>
-        </section>
-
-        <section id="gallery" className="max-w-7xl mx-auto px-4 py-10">
-          <h2 className="text-2xl font-semibold mb-4">Screenshot Gallery</h2>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {/* placeholder paths. Replace with real images in src/assets /*/}
-            <div className="border border-slate-800 rounded p-3 text-xs text-slate-400">src/assets/scenario1-home.png</div>
-            <div className="border border-slate-800 rounded p-3 text-xs text-slate-400">src/assets/scenario1-gpu1.png</div>
-            <div className="border border-slate-800 rounded p-3 text-xs text-slate-400">src/assets/scenario2-menu.png</div>
-            <div className="border border-slate-800 rounded p-3 text-xs text-slate-400">src/assets/scenario3-qr.png</div>
+          <div className="bg-white bg-opacity-80 backdrop-blur p-6 rounded-lg border border-slate-200">
+            <h2 className="text-xl font-semibold text-slate-900">Conclusion</h2>
+            <p className="text-slate-700 mt-2">The performance profiling analysis shows that Natrium Wallet maintains a lightweight UI hierarchy, controlled memory behavior, and effective multithreaded execution. The main bottlenecks are temporary rendering spikes during startup, navigation transitions, and QR interactions. The QR/transaction scenario produced the highest rendering cost, while navigation produced the highest memory usage. Overall, the application is stable, but performance could be improved through QR rendering optimization, lazy initialization, overlay simplification, and continued leak monitoring.</p>
           </div>
         </section>
       </main>
