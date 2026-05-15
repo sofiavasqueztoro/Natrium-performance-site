@@ -50,9 +50,6 @@ function AppOverview() {
               <div>Device: {env.device}</div>
               <div>Resolution: {env.resolution}</div>
               <div>Platform: {env.platform}</div>
-              <div>Flutter: {env.flutterVersion}</div>
-              <div>Dart: {env.dartVersion}</div>
-              <div>Build mode: {env.buildMode}</div>
             </div>
           </div>
         </div>
@@ -150,6 +147,8 @@ export default function App() {
 
         <Metrics />
 
+        
+
         <section id="scenarios" className="max-w-7xl mx-auto px-4 py-10 space-y-4">
           <h2 className="text-2xl font-semibold text-slate-900">Scenario Analyses</h2>
           <div className="grid gap-4">
@@ -184,6 +183,23 @@ export default function App() {
             <RecommendationCard title="Defer Startup Work" problem="Startup generated a janky frame." solution="Lazy-load non-critical data after first frame." impact="Faster first visual render." />
             <RecommendationCard title="Reduce Overlay Complexity" problem="Overlays increase overdraw." solution="Simplify overlay layers and opacity." impact="Lower GPU composition cost." />
             <RecommendationCard title="Monitor Memory Retention" problem="Controllers and callbacks risk retention." solution="Use leak_tracker & DevTools Memory View." impact="Better long-term stability." />
+          </div>
+        </section>
+
+        <section id="micro-optimizations" className="max-w-7xl mx-auto px-4 py-10">
+          <h2 className="text-2xl font-semibold mb-4 text-slate-900">Micro Optimizations</h2>
+          <div className="bg-white bg-opacity-80 backdrop-blur p-6 rounded-lg border border-slate-200">
+            <p className="text-slate-700 text-sm mb-4">Small, targeted changes can materially improve responsiveness and memory use. Consider the following practical optimizations to include in the implementation or code review:</p>
+            <ul className="list-disc pl-6 grid gap-2">
+              <li className="text-slate-700 text-sm"><strong>Use RepaintBoundary</strong>: Wrap widgets that change frequently to limit repaints to necessary subtrees.</li>
+              <li className="text-slate-700 text-sm"><strong>Reduce overdraw</strong>: Avoid stacking opaque layers; prefer flattened layouts and use alpha where needed sparingly.</li>
+              <li className="text-slate-700 text-sm"><strong>Minimize rebuilds</strong>: Use const constructors, extract smaller widgets, and avoid rebuilding large subtrees on state changes.</li>
+              <li className="text-slate-700 text-sm"><strong>Cache images & assets</strong>: Resize large images and cache them to prevent repeated decoding on render.</li>
+              <li className="text-slate-700 text-sm"><strong>Prefer efficient lists</strong>: Use lazy builders (e.g., ListView.builder) for long lists and avoid heavy item builders.</li>
+              <li className="text-slate-700 text-sm"><strong>Avoid expensive layouts on main thread</strong>: Move heavy parsing, decoding, or synchronous work off the UI thread.</li>
+              <li className="text-slate-700 text-sm"><strong>Use profiling-driven fixes</strong>: Prefer targeted fixes suggested by traces (e.g., GC hotspots, large allocations) rather than blind changes.</li>
+              <li className="text-slate-700 text-sm"><strong>Debounce input work</strong>: Throttle rapid UI events (search, typing) to avoid CPU spikes and redraw churn.</li>
+            </ul>
           </div>
         </section>
 
